@@ -1,0 +1,11 @@
+replicaCount: 2
+
+image:
+  repository: asmabadrwork/python-cicd-demo
+  tag: latest
+  pullPolicy: Always
+
+service:
+  type: ClusterIP
+  port: 80
+  targetPort: 5000
