@@ -1,7 +1,7 @@
 replicaCount: 2
 
 image:
-  repository: asmabadrwork/java-demo-app
+  repository: asmabadrwork/java-api-demo
   tag: latest
   pullPolicy: Always
 
