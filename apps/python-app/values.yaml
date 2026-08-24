@@ -2,7 +2,7 @@ replicaCount: 2
 
 image:
   repository: asmabadrwork/python-cicd-demo
-  tag: 1e946550581467f0e73c9149703423c2fbaeba5a
+  tag: 0fddfe383c42b86e6c5ad66f06388c57888b55c3
   pullPolicy: Always
 
 service:
