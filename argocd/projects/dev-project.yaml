@@ -3,6 +3,8 @@ kind: AppProject
 metadata:
   name: dev-project
   namespace: argocd
+  annotations:
+    argocd.argoproj.io/sync-wave: "0"  # <── Wave 0
 spec:
   description: Dev Environment Security Boundary
   # ALLOW Argo CD to create Namespaces automatically!
