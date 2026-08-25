@@ -8,9 +8,10 @@ spec:
   source:
     repoURL: 'https://github.com/asmabadrwork/gitops-manifests.git'
     targetRevision: HEAD
-    path: argocd/apps/dev
+    path: argocd
     directory:
-      recurse: true          
+      recurse: true
+      exclude: 'parents/*'             # <── Scans projects/ and apps/dev/, skips parents!
   destination:
     server: https://kubernetes.default.svc
     namespace: argocd
