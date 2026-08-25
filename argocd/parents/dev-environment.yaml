@@ -8,9 +8,9 @@ spec:
   source:
     repoURL: 'https://github.com/asmabadrwork/gitops-manifests.git'
     targetRevision: HEAD
-    path: argocd
+    path: argocd/apps/dev
     directory:
-      recurse: true          # for ArgoCD to scan subfolders
+      recurse: true          
   destination:
     server: https://kubernetes.default.svc
     namespace: argocd
