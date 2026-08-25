@@ -5,6 +5,11 @@ metadata:
   namespace: argocd
 spec:
   description: Dev Environment Security Boundary
+  # ALLOW Argo CD to create Namespaces automatically!
+  clusterResourceWhitelist:
+    - group: ''
+      kind: Namespace
+      
   sourceRepos:
     - 'https://github.com/asmabadrwork/gitops-manifests.git'
   destinations:
