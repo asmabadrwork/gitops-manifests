@@ -1,0 +1,35 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: dev-applications
+  namespace: argocd
+  annotations:
+    argocd.argoproj.io/sync-wave: "1"  # <── Wave 1
+spec:
+  generators:
+    - list:
+        elements:
+          - app: python-app
+          - app: java-app
+  template:
+    metadata:
+      name: '{{app}}'
+    spec:
+      project: dev-project
+      source:
+        repoURL: 'https://github.com/asmabadrwork/gitops-manifests.git'
+        targetRevision: HEAD
+        path: helm
+        helm:
+          valueFiles:
+            - values.yaml
+            - ../applications/dev/{{app}}-values.yaml
+      destination:
+        server: https://kubernetes.default.svc
+        namespace: dev
+      syncPolicy:
+        automated:
+          prune: true
+          selfHeal: true
+        syncOptions:
+          - CreateNamespace=true
