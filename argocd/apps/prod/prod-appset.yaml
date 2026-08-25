@@ -15,7 +15,7 @@ spec:
     metadata:
       name: '{{app}}-prod'
     spec:
-      project: prod-project               # <── Production Project!
+      project: prod-project
       source:
         repoURL: 'https://github.com/asmabadrwork/gitops-manifests.git'
         targetRevision: HEAD
@@ -23,11 +23,13 @@ spec:
         helm:
           valueFiles:
             - values.yaml
-            - ../applications/prod/{{app}}-values.yaml # <── Production Values!
+            - ../applications/prod/{{app}}-values.yaml
       destination:
         server: https://kubernetes.default.svc
-        namespace: prod                   # <── Deploys to prod namespace!
+        namespace: prod
       syncPolicy:
         automated:
           prune: true
           selfHeal: true
+        syncOptions:
+          - CreateNamespace=true       # <── TELLS ARGO CD TO AUTO-CREATE THE PROD NAMESPACE!
