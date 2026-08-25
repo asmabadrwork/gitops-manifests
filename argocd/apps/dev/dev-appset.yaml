@@ -3,6 +3,8 @@ kind: ApplicationSet
 metadata:
   name: dev-applications
   namespace: argocd
+  annotations:
+    argocd.argoproj.io/sync-wave: "1"  # <── Wave 1
 spec:
   generators:
     - list:
