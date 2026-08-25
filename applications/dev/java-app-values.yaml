@@ -1,0 +1,7 @@
+replicaCount: 2
+image:
+  repository: asmabadrwork/java-api-demo
+  tag: latest   # <--- Updated by CI!
+service:
+  port: 80
+  targetPort: 8080
