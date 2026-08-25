@@ -8,7 +8,7 @@ spec:
   source:
     repoURL: 'https://github.com/asmabadrwork/gitops-manifests.git'
     targetRevision: HEAD
-    path: argocd/apps/dev
+    path: argocd
   destination:
     server: https://kubernetes.default.svc
     namespace: argocd
