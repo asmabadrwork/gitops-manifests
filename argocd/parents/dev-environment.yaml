@@ -8,7 +8,7 @@ spec:
   source:
     repoURL: 'https://github.com/asmabadrwork/gitops-manifests.git'
     targetRevision: HEAD
-    path: argocd
+    path: argocd/apps/dev
     directory:
       recurse: true
       exclude: 'parents/*'             # <── Scans projects/ and apps/dev/, skips parents!
